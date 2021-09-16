@@ -2,7 +2,6 @@ const request = require('supertest');
 const { validate } = require('uuid');
 
 const app = require('../');
-
 describe('Todos', () => {
   it("should be able to list all user's todo", async () => {
     const userResponse = await request(app)
@@ -151,7 +150,6 @@ describe('Todos', () => {
         name: 'John Doe',
         username: 'user4'
       });
-
     const response = await request(app)
       .patch('/todos/invalid-todo-id/done')
       .set('username', userResponse.body.username)
